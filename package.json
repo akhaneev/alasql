@@ -48,7 +48,7 @@
 	"dependencies": {
 		"dom-storage": "2.1.0",
 		"es6-promise": "4.2.8",
-		"node-fetch": "2",
+		"node-fetch": "3",
 		"xlsx": "0.18",
 		"yargs": "16",
 		"yarn": "^1.22.19"
