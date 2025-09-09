@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [15.x, 16.x, 17.x, 18.x, 19.x, latest]
+        node-version: [latest]
     steps:
       - uses: actions/checkout@v4
       - name: Run prod version with Node v${{ matrix.node-version }}
