@@ -157,6 +157,10 @@ yy.Select = class Select {
 
 	// Compile SELECT statement
 	compile(databaseid, params) {
+		if (this._compiledStatement) {
+			return this._compiledStatement;
+		}
+
 		var db = alasql.databases[databaseid];
 		// Create variable for query
 		var query = new Query();
@@ -368,6 +372,7 @@ yy.Select = class Select {
 		};
 
 		statement.query = query;
+		this._compiledStatement = statement;
 		return statement;
 	}
 
