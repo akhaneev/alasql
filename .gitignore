@@ -20,3 +20,8 @@ dist/
 /.idea/runConfigurations.xml
 /.idea/vcs.xml
 pnpm-lock.yaml
+/.idea/codeStyles/Project.xml
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/jpa-buddy.xml
+/.idea/misc.xml
+/.yarn/install-state.gz

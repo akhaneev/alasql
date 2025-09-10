@@ -45,24 +45,24 @@
 		"postversion": "npm publish && git push && git push --tags && echo \"Successfully released version $npm_package_version\""
 	},
 	"dependencies": {
-		"cross-fetch": "4",
-		"yargs": "16"
+		"cross-fetch": "4.1.0",
+		"yargs": "18.0.0"
 	},
 	"devDependencies": {
 		"blueimp-md5": "2.19.0",
 		"cmdmix": "2.2.2",
 		"dom-storage": "2.1.0",
-		"esbuild": "0.23.1",
+		"esbuild": "0.25.9",
 		"git-branch-is": "4.0.0",
-		"husky": "8.0.3",
+		"husky": "9.1.7",
 		"jison": "^0.4.18",
-		"mocha": "10.7.3",
+		"mocha": "11.7.2",
 		"mocha.parallel": "0.15.6",
-		"open": "10.1.0",
-		"prettier": "3.3.3",
+		"open": "10.2.0",
+		"prettier": "3.6.2",
 		"react-native-fetch-blob": "^0.10.8",
 		"react-native-fs": "^2.20.0",
-		"rexreplace": "7.1.10",
+		"rexreplace": "7.1.13",
 		"strftime": "0.10.3",
 		"tabletop": "1.6.3",
 		"uglify-js": "3.19.3"
@@ -83,9 +83,7 @@
 		"type": "git",
 		"url": "http://github.com/akhaneev/alasql.git"
 	},
-	"bin": {
-		"alasql": "./bin/alasql-cli.js"
-	},
+	"bin": "./bin/alasql-cli.js",
 	"homepage": "https://github.com/alasql/alasql",
 	"keywords": [
 		"SQL",
