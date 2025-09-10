@@ -37,31 +37,31 @@ yy.CaseValue.prototype.findAggregator = function (query) {
 
 yy.CaseValue.prototype.toJS = function (context, tableid, defcols) {
 	let s = `(((${context}, params, alasql) => {
-        let y, r;`;
+        let y, rc;`;
 
 	if (this.expression) {
 		// If there's an expression, evaluate it and store in `v`, then compare in `when` clauses
 		s += `let v = ${this.expression.toJS(context, tableid, defcols)};`;
 		this.whens.forEach((w, index) => {
 			const condition = `v == ${w.when.toJS(context, tableid, defcols)}`;
-			const assignment = `r = ${w.then.toJS(context, tableid, defcols)}`;
+			const assignment = `rc = ${w.then.toJS(context, tableid, defcols)}`;
 			s += `${index === 0 ? 'if' : ' else if'} (${condition}) { ${assignment}; }`;
 		});
 	} else {
 		// Directly evaluate `when` conditions without an initial expression
 		this.whens.forEach((w, index) => {
 			const condition = w.when.toJS(context, tableid, defcols);
-			const assignment = `r = ${w.then.toJS(context, tableid, defcols)}`;
+			const assignment = `rc = ${w.then.toJS(context, tableid, defcols)}`;
 			s += `${index === 0 ? 'if' : ' else if'} (${condition}) { ${assignment}; }`;
 		});
 	}
 
 	// Handle the `else` case
 	if (this.elses) {
-		s += ` else { r = ${this.elses.toJS(context, tableid, defcols)}; }`;
+		s += ` else { rc = ${this.elses.toJS(context, tableid, defcols)}; }`;
 	}
 
-	s += '; return r; }))(' + context + ', params, alasql)';
+	s += '; return rc; }))(' + context + ', params, alasql)';
 
 	return s;
 };
